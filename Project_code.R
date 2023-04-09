@@ -9,6 +9,8 @@ library(ggpubr)
 library(viridis)
 
 #write a quick aic function
+#input: the negative log likelihood value and number of parameters
+#output: the AIC score
 aic <- function(nll, pars) {
   return (2 * nll + 2 * pars)
 }
@@ -51,6 +53,9 @@ dist_mat <- edist(TostMask,activityCentres)
 ####Maximise likelihood to estimate encounter rate parameters
 
 params = log(c(.02,6000))
+#inputs: a vector of initial parameter values, the tag data data frame, a distance matrix
+#and the chosen detection function
+#outputs: the negative log likelihood and parameter estimates for the euclidean distance model
 euc_fixed_centre_lik <- function(params,
                                  tagdata,
                                  distance,
@@ -123,6 +128,11 @@ costFunc4 <- function(x, a) {
 #models with non-euclidean distance and fixed activity centres
 params = c(mod1$estimate,1)
 
+#inputs: a vector of initial parameter values, the tag data data frame, a mask of the area,
+#a raster of ruggednesses for each cell, the activity centres, 
+#the chosen detection function and the chosen cost function
+#outputs: the negative log likelihood and parameter estimates for the non-euclidean distance model
+                   
 non_euc_fixed_centre_lik <- function(params,tagdata,mesh,raster,
                                      centres,detectfn,
                                      costFunction){
@@ -130,7 +140,7 @@ non_euc_fixed_centre_lik <- function(params,tagdata,mesh,raster,
   sigma = exp(params[2])
   alpha = params[3]
   
-  transition_matrix <- transition(rugg_raster,function(x) 
+  transition_matrix <- transition(raster,function(x) 
     costFunction(x,alpha),directions = 16,symm  = F)
   transition_matrix_corrected <- geoCorrection(transition_matrix,
                                                type = 'c')
