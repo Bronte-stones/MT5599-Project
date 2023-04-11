@@ -503,3 +503,39 @@ ind8_gplot <-ggplot(TostMask, aes(x = x, y = y))+
 
 windows()
 ggarrange(ind5_gplot, ind6_gplot,ind7_gplot,ind8_gplot)
+
+                                  
+                                  
+#plots paths for each individual under best individual models
+                                  
+
+path_list <- list(spath_ind1,spath_ind2,spath_ind3,spath_ind4,spath_ind5,
+                  spath_ind6,spath_ind7,spath_ind8)
+
+
+par(mfrow = c(2,2))
+
+plot(rugg_raster, xlab = 'UTM X-Coordinate', ylab = 'UTM Y-Coordinate', 
+     main = ('Individual 1 Best Model'))
+lines(spath_ind1)
+plot(rugg_raster, xlab = 'UTM X-Coordinate', ylab = 'UTM Y-Coordinate', 
+     main = ('Individual 2 Best Model'))
+lines(spath_ind2)
+plot(rugg_raster, xlab = 'UTM X-Coordinate', ylab = 'UTM Y-Coordinate', 
+     main = ('Individual 3 Best Model'))
+lines(spath_ind3)
+plot(rugg_raster, xlab = 'UTM X-Coordinate', ylab = 'UTM Y-Coordinate', 
+     main = ('Individual 4 Best Model'))
+lines(spath_ind4)
+plot(rugg_raster, xlab = 'UTM X-Coordinate', ylab = 'UTM Y-Coordinate', 
+     main = ('Individual 5 Best Model'))
+lines(spath_ind5)
+plot(rugg_raster, xlab = 'UTM X-Coordinate', ylab = 'UTM Y-Coordinate', 
+     main = ('Individual 6 Best Model'))
+lines(spath_ind6)
+plot(rugg_raster, xlab = 'UTM X-Coordinate', ylab = 'UTM Y-Coordinate', 
+     main = ('Individual 7 Best Model'))
+lines(spath_ind7)
+plot(rugg_raster, xlab = 'UTM X-Coordinate', ylab = 'UTM Y-Coordinate', 
+     main = ('Individual 8 Best Model'))
+lines(spath_ind8)
