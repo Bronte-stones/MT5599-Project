@@ -11,3 +11,6 @@ ind_models_project_code contains the code used for fitting models separately to 
 ind_models_gof_project_code contains the code for goodness of fit testing on the best separate models found for each individual
 
 Plots_project_code contains the code for the plots
+
+
+project_code contains all of the code from models_project_code, gof_project_code, ind_models_project_code, and ind_models_gof_project_code in one file.
