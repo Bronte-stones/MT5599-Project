@@ -323,7 +323,6 @@ for (i in 1:8) {
 
 
 sim_ind_locs <- ifelse(rowSums(sim_matrix_model4) == 0, NA, rowSums(sim_matrix_model4))
-sim_ind_locs[6300] <- 57
 
 ggplot(TostMask, aes(x = x, y = y))+
   geom_tile()+
@@ -356,7 +355,6 @@ sim_matrix_sep <- data.frame(sim_matrix_ind1,sim_matrix_ind2,sim_matrix_ind3,
 
 
 sim_ind_locs_sep <- ifelse(rowSums(sim_matrix_sep) == 0, NA, rowSums(sim_matrix_sep))
-sim_ind_locs_sep[6300] <- 57
 
 ggplot(TostMask, aes(x = x, y = y))+
   geom_tile()+
